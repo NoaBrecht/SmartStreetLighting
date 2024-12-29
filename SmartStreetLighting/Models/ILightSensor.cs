@@ -1,6 +1,6 @@
 ﻿namespace SmartStreetLighting.Models
 {
-    internal interface ILightSensor
+    public interface ILightSensor
     {
         string Url { get; set; }
         int GetLuxValue();

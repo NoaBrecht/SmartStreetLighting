@@ -1,6 +1,6 @@
 ﻿namespace SmartStreetLighting.Models
 {
-    internal interface ILight
+    public interface ILight
     {
         public bool IsEnabled { get; }
         public int Strength { get; }

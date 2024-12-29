@@ -1,6 +1,6 @@
 ﻿namespace SmartStreetLighting.Models
 {
-    internal interface IWeatherSensor
+    public interface IWeatherSensor
     {
         string Url { get; set; }
         string GetWeatherCondition();

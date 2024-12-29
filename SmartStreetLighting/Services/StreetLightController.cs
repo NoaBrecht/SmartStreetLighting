@@ -2,7 +2,7 @@
 
 namespace SmartStreetLighting.Services
 {
-    internal class StreetLightController
+    public class StreetLightController
     {
         private readonly ILight light;
         private readonly IWeatherSensor weatherSensor;
@@ -48,6 +48,7 @@ namespace SmartStreetLighting.Services
 
                 int lux = lightSensor.GetLuxValue();
                 string weather = weatherSensor.GetWeatherCondition();
+                weather = weather.ToLower();
 
                 failures = 0;
 

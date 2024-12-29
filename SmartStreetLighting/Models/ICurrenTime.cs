@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartStreetLighting.Models
 {
-    internal interface ICurrenTime
+    public interface ICurrenTime
     {
         int GetCurrentHour();
         int getCurrentMonth();
