@@ -84,8 +84,49 @@ namespace SmartStreetLighting.UnitTests
             streetLightMock.Verify(x => x.Enable(8), Times.Once);
         }
 
+
+
+
         [TestMethod]
-        public void WorkWhenInSafeModeAndTemperatureSuccesReset()
+        public void TestSafeModeActivatedAfterMaxFailuresDueToTemperatureErrorLightSensor()
+        {
+            //Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Throws<Exception>();
+            for (int i = 1; i < streetLightController.MaxFailures; i++)
+            {
+                streetLightController.ManageLights();
+            }
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Enable(It.IsAny<int>()), Times.Once);
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            Assert.IsTrue(streetLightController.InSafeMode);
+        }
+
+        [TestMethod]
+        public void TestSafeModeActivatedAfterMaxFailuresDueToTemperatureErrorWeatherensor()
+        {
+            //Arrange
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Throws<Exception>();
+            for (int i = 1; i < streetLightController.MaxFailures; i++)
+            {
+                streetLightController.ManageLights();
+            }
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Enable(It.IsAny<int>()), Times.Once);
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            Assert.IsTrue(streetLightController.InSafeMode);
+        }
+
+        [TestMethod]
+        public void TestExitSafeModeAfterSuccessfulRecoveryFromSensorErrorLightSensor()
         {
             // Arrange
             lightSensorMock.Setup(x => x.GetLuxValue()).Throws<Exception>();
@@ -95,6 +136,30 @@ namespace SmartStreetLighting.UnitTests
             }
             Assert.IsTrue(streetLightController.InSafeMode);
             lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("snow");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(2);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(true);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            Assert.IsFalse(streetLightController.InSafeMode);
+        }
+        [TestMethod]
+        public void TestExitSafeModeAfterSuccessfulRecoveryFromSensorErrorWeatherSensor()
+        {
+            // Arrange
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Throws<Exception>();
+            for (int i = 0; i < streetLightController.MaxFailures; i++)
+            {
+                streetLightController.ManageLights();
+            }
+            Assert.IsTrue(streetLightController.InSafeMode);
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("snow");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(2);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(true);
 
             // Act
             streetLightController.ManageLights();
