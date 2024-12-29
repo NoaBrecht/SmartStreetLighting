@@ -59,6 +59,10 @@ namespace SmartStreetLighting.Services
                         {
                             light.Enable(8);
                         }
+                        else if (weather == "rain")
+                        {
+                            light.Enable(6);
+                        }
                         else if (weather == "fog")
                         {
                             light.Enable(9);
@@ -81,6 +85,10 @@ namespace SmartStreetLighting.Services
                         if (weather == "snow")
                         {
                             light.Enable(5);
+                        }
+                        else if (weather == "rain")
+                        {
+                            light.Enable(4);
                         }
                         else if (weather == "fog" || weather == "storm")
                         {
@@ -108,6 +116,10 @@ namespace SmartStreetLighting.Services
                         {
                             light.Enable(8);
                         }
+                        else if (weather == "rain")
+                        {
+                            light.Enable(6);
+                        }
                         else if (weather == "fog")
                         {
                             light.Enable(9);
@@ -130,6 +142,10 @@ namespace SmartStreetLighting.Services
                         if (weather == "snow")
                         {
                             light.Enable(5);
+                        }
+                        else if (weather == "rain")
+                        {
+                            light.Enable(4);
                         }
                         else if (weather == "fog" || weather == "storm")
                         {
@@ -156,14 +172,7 @@ namespace SmartStreetLighting.Services
                 int time = CurrentTime.GetCurrentHour();
                 if (failures >= MaxFailures)
                 {
-                    if (time >= 20 || time <= 6)
-                    {
-                        light.Enable(7);
-                    }
-                    else
-                    {
-                        light.Enable(5);
-                    }
+                    light.Enable(7);
                 }
             }
         }

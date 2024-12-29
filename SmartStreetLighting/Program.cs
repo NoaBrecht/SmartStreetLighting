@@ -11,7 +11,7 @@ namespace SmartStreetLighting
             ILightSensor lightSensor = new LightSensorData();
             ICurrenTime time = new CurrentTime();
 
-            StreetLightController streetLightController = new StreetLightController(light, weatherSensor,lightSensor, time);
+            StreetLightController streetLightController = new StreetLightController(light, weatherSensor, lightSensor, time);
             while (true)
             {
                 streetLightController.ManageLights();
