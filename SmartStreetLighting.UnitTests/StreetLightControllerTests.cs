@@ -1,6 +1,7 @@
 ﻿using Moq;
 using SmartStreetLighting.Models;
 using SmartStreetLighting.Services;
+using System.Security.Cryptography;
 
 namespace SmartStreetLighting.UnitTests
 {
@@ -81,6 +82,25 @@ namespace SmartStreetLighting.UnitTests
 
             // Assert
             streetLightMock.Verify(x => x.Enable(8), Times.Once);
+        }
+
+        [TestMethod]
+        public void WorkWhenInSafeModeAndTemperatureSuccesReset()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Throws<Exception>();
+            for (int i = 0; i < streetLightController.MaxFailures; i++)
+            {
+                streetLightController.ManageLights();
+            }
+            Assert.IsTrue(streetLightController.InSafeMode);
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            Assert.IsFalse(streetLightController.InSafeMode);
         }
     }
 }

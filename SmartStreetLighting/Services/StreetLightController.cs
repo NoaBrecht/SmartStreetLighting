@@ -35,17 +35,16 @@ namespace SmartStreetLighting.Services
             get { return maxFailures; }
             set { maxFailures = value; }
         }
-        public bool InSafeMode => failures >= MaxFailures;
+        public bool InSafeMode
+        {
+            get { return (failures < MaxFailures) ? false : true; }
+        }
         public void ManageLights()
         {
             try
             {
                 int time = CurrentTime.GetCurrentHour();
                 bool isWinter = CurrentTime.IsWinterSeason();
-
-                Console.WriteLine("It is currently " + time);
-                Console.WriteLine("Winter: " + isWinter);
-
                 int lux = lightSensor.GetLuxValue();
                 string weather = weatherSensor.GetWeatherCondition();
                 weather = weather.ToLower();
