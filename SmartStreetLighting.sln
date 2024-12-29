@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35431.28
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartStreetLighting", "SmartStreetLighting\SmartStreetLighting.csproj", "{EA9FB2B5-AFC8-4431-8769-D83D744C788C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA9FB2B5-AFC8-4431-8769-D83D744C788C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA9FB2B5-AFC8-4431-8769-D83D744C788C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA9FB2B5-AFC8-4431-8769-D83D744C788C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA9FB2B5-AFC8-4431-8769-D83D744C788C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E79BFE8D-B269-46B5-A534-079E275639CD}
+	EndGlobalSection
+EndGlobal
