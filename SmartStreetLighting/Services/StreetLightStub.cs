@@ -2,7 +2,7 @@
 
 namespace SmartStreetLighting
 {
-    internal class StreetLightStub : ILight
+    public class StreetLightStub : ILight
     {
         private bool isEnabled;
         private int strength;

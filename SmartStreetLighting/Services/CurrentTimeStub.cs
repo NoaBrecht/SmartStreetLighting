@@ -1,7 +1,7 @@
 ﻿using SmartStreetLighting.Models;
 namespace SmartStreetLighting.Services
 {
-    public class CurrentTime : ICurrenTime
+    public class CurrentTimeStub : ICurrenTime
     {
         public int GetCurrentHour()
         {

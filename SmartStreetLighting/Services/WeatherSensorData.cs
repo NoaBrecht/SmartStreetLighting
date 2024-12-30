@@ -2,7 +2,7 @@
 using SmartStreetLighting.Models;
 namespace SmartStreetLighting
 {
-    internal class WeatherSensorData : IWeatherSensor
+    public class WeatherSensorData : IWeatherSensor
     {
         private string url = "http://api.openweathermap.org/data/2.5/weather?q=Antwerp,BE&appid=b1a90ec4d94d84ecf2a3f2bb634b970d&units=metric";
         public string Url
