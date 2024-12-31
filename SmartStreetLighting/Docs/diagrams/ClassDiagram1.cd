@@ -1,36 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="SmartStreetLighting.Models.LuxResponse">
-    <Position X="14" Y="2.25" Width="1.5" />
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\APIResponses.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmartStreetLighting.Models.OpenWeather">
-    <Position X="1.75" Y="2" Width="1.5" />
+    <Position X="4" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\APIResponses.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmartStreetLighting.Models.Weather">
-    <Position X="7.25" Y="7" Width="1.5" />
+    <Position X="5.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAQAAAAAAAgQ=</HashCode>
       <FileName>Models\APIResponses.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmartStreetLighting.Services.CurrentTime" BaseTypeListCollapsed="true">
-    <Position X="4.5" Y="1" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>Services\CurrentTime.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SmartStreetLighting.Services.CurrentTimeStub" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Services\CurrentTimeStub.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="SmartStreetLighting.Services.LightSensor" BaseTypeListCollapsed="true">
-    <Position X="9.5" Y="0.75" Width="1.5" />
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>Services\LightSensor.cs</FileName>
@@ -38,7 +46,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="SmartStreetLighting.Services.LightSensorData" BaseTypeListCollapsed="true">
-    <Position X="7.25" Y="2" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAIAAAACAAAAAAAAAA=</HashCode>
       <FileName>Services\LightSensorData.cs</FileName>
@@ -46,14 +54,14 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="SmartStreetLighting.Services.StreetLightController">
-    <Position X="14.5" Y="4.5" Width="1.5" />
+    <Position X="0.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AASAAAAAAgAAAAAAAAAAAAAAAIIAABEAAIAAgAAEgCA=</HashCode>
       <FileName>Services\StreetLightController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmartStreetLighting.StreetLight" BaseTypeListCollapsed="true">
-    <Position X="11.75" Y="4.75" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAEACAAAAABAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Services\StreetLight.cs</FileName>
@@ -61,7 +69,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="SmartStreetLighting.StreetLightStub" BaseTypeListCollapsed="true">
-    <Position X="1" Y="4" Width="1.5" />
+    <Position X="4" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAQAAAAEACAAAAABAAAAAQAAgAAAAAAA=</HashCode>
       <FileName>Services\StreetLightStub.cs</FileName>
@@ -69,7 +77,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="SmartStreetLighting.WeatherSensor" BaseTypeListCollapsed="true">
-    <Position X="9" Y="3.5" Width="1.5" />
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABAAAAAAAA=</HashCode>
       <FileName>Services\WeatherSensor.cs</FileName>
@@ -77,43 +85,36 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="SmartStreetLighting.WeatherSensorData" BaseTypeListCollapsed="true">
-    <Position X="11.75" Y="2.25" Width="1.5" />
+    <Position X="2.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACABAAAAAAAA=</HashCode>
       <FileName>Services\WeatherSensorData.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="SmartStreetLighting.Program">
-    <Position X="4.25" Y="2.75" Width="1.5" />
+  <Interface Name="SmartStreetLighting.Models.ICurrenTime">
+    <Position X="5.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
+      <HashCode>CAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Models\ICurrenTime.cs</FileName>
     </TypeIdentifier>
-  </Class>
+  </Interface>
   <Interface Name="SmartStreetLighting.Models.ILight">
-    <Position X="3.75" Y="5.25" Width="1.5" />
+    <Position X="7.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAEACAAAAABAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Models\ILight.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmartStreetLighting.Models.ILightSensor">
-    <Position X="5.5" Y="5.25" Width="1.5" />
+    <Position X="7.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>Models\ILightSensor.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SmartStreetLighting.Models.ICurrenTime">
-    <Position X="7.25" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\ICurrenTime.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="SmartStreetLighting.Models.IWeatherSensor">
-    <Position X="9" Y="5.25" Width="1.5" />
+    <Position X="9.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABAAAAAAAA=</HashCode>
       <FileName>Models\IWeatherSensor.cs</FileName>

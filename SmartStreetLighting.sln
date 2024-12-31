@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartStreetLighting.UnitTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartStreetLighting.AcceptanceTests", "SmartStreetLighting.AcceptanceTests\SmartStreetLighting.AcceptanceTests.csproj", "{D9FE780D-582B-4103-8812-C67BB8558B41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartStreetLighting.IntegrationTests", "SmartStreetLighting.IntegrationTests\SmartStreetLighting.IntegrationTests.csproj", "{42490D9B-967F-41B9-A24A-5965A7CC620B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D9FE780D-582B-4103-8812-C67BB8558B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9FE780D-582B-4103-8812-C67BB8558B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9FE780D-582B-4103-8812-C67BB8558B41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42490D9B-967F-41B9-A24A-5965A7CC620B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42490D9B-967F-41B9-A24A-5965A7CC620B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42490D9B-967F-41B9-A24A-5965A7CC620B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42490D9B-967F-41B9-A24A-5965A7CC620B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

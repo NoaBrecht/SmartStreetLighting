@@ -117,7 +117,7 @@ namespace SmartStreetLighting.UnitTests
         //    streetLightMock.Verify(x => x.Disable(), Times.Never);
         //    streetLightMock.Verify(x => x.Enable(6), Times.Once);
         //}
-        //[TestMethod]
+        [TestMethod]
         public void TestLightDisableWhenLuxAboveSetPointInWinter()
         {
             // Arrange
@@ -231,5 +231,278 @@ namespace SmartStreetLighting.UnitTests
             // Assert
             Assert.IsFalse(streetLightController.InSafeMode);
         }
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointWinterSnowDay()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("snow");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(12);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(true);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(5), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointWinterFogDay()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("fog");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(12);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(true);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(6), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointWinterStormDay()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("storm");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(12);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(true);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(6), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointWinterCloudyDay()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("cloudy");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(12);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(true);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(3), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointWinterSnowNight()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("snow");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(2);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(true);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(8), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointWinterFogNight()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("fog");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(2);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(true);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(9), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointWinterStormNight()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("storm");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(2);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(true);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(10), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointWinterCloudyNight()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("cloudy");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(2);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(true);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(5), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointSummerSnowDay()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("snow");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(12);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(false);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(5), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointSummerFogDay()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("fog");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(12);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(false);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(6), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointSummerStormDay()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("storm");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(12);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(false);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(6), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointSummerCloudyDay()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("cloudy");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(12);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(false);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(3), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointSummerSnowNight()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("snow");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(2);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(false);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(8), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointSummerFogNight()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("fog");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(2);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(false);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(9), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointSummerStormNight()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("storm");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(2);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(false);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(10), Times.Once);
+        }
+
+        [TestMethod]
+        public void TestLightEnableWhenLuxAboveSetPointSummerCloudyNight()
+        {
+            // Arrange
+            lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
+            weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("cloudy");
+            currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(2);
+            currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(false);
+
+            // Act
+            streetLightController.ManageLights();
+
+            // Assert
+            streetLightMock.Verify(x => x.Disable(), Times.Never);
+            streetLightMock.Verify(x => x.Enable(5), Times.Once);
+        }
+
+
     }
 }
