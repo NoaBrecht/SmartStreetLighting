@@ -2,6 +2,7 @@
 using SmartStreetLighting.Models;
 using SmartStreetLighting.Services;
 using System.Globalization;
+using System.Security;
 using System.Security.Cryptography;
 using Xunit;
 using Xunit.Gherkin.Quick;
@@ -9,7 +10,7 @@ using Xunit.Gherkin.Quick;
 namespace SmartStreetLighting.AcceptanceTests.StepDefinitions
 {
     [FeatureFile("./Features/StreetLightController.Feature")]
-    public sealed class StreetLightControllerDescisionSteps : Feature
+    public sealed class StreetLightControllerSteps : Feature
     {
         private const int MaxFailures = 5;
         private const int OffSet = 20;
@@ -21,9 +22,11 @@ namespace SmartStreetLighting.AcceptanceTests.StepDefinitions
         private IWeatherSensor weathersensor;
         private ICurrenTime currentTime;
         private const string UrlMockoonLux = "http://localhost:3000/data/1.0/LightData";
-        private const string UrlMockoonException = "http://localhost:3000/data/2.5/weather/exception";
+        private const string UrlMockoonLuxException = "http://localhost:3000/data/1.0/LightData/exception";
+        private const string UrlMockoonWeather = "http://localhost:3000/data/1.0/WeatherData";
+        private const string UrlMockoonWeatherException = "http://localhost:3000/data/1.0/WeatherData/exception";
 
-        public StreetLightControllerDescisionSteps()
+        public StreetLightControllerSteps()
         {
             lightsensor = new LightSensorData();
             light = new StreetLightStub();
@@ -48,9 +51,10 @@ namespace SmartStreetLighting.AcceptanceTests.StepDefinitions
         [When(@"the lux exceeds the upper boundary")]
         public void SetLightOff()
         {
-            // Lux value higher than SetPoint + offset (light should be turned off)
-            string queryParam = "?luxStrenght=" + (SetPoint - OffSet + 1).ToString(CultureInfo.InvariantCulture);
+            string queryParam = "?luxStrenght=" + (SetPoint + 10).ToString(CultureInfo.InvariantCulture);
+            string queryParamWeather = "?weather=sunny";
             lightsensor.Url = $"{UrlMockoonLux}{queryParam}";
+            weathersensor.Url = $"{UrlMockoonWeather}{queryParamWeather}";
             streetLightController.ManageLights();
         }
 

@@ -1,8 +1,6 @@
-﻿using Moq;
-using SmartStreetLighting.Models;
+﻿using SmartStreetLighting.Models;
 using SmartStreetLighting.Services;
 using System.Globalization;
-using System.Security.Cryptography;
 
 namespace SmartStreetLighting.IntegrationTests
 {
@@ -32,7 +30,7 @@ namespace SmartStreetLighting.IntegrationTests
             weatherSensor = new WeatherSensorData();
             currenTime = new CurrentTimeStub();
 
-            streetLightController = new StreetLightController(light,weatherSensor,lightSensor,currenTime)
+            streetLightController = new StreetLightController(light, weatherSensor, lightSensor, currenTime)
             {
                 SetPoint = SetPoint,
                 Offset = OffSet,

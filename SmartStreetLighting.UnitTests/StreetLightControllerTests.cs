@@ -100,23 +100,6 @@ namespace SmartStreetLighting.UnitTests
             streetLightMock.Verify(x => x.Disable(), Times.Never);
             streetLightMock.Verify(x => x.Enable(3), Times.Once);
         }
-        //[TestMethod]
-        //public void TestLightEnableWhenLuxAboveSetPointNotWinterSunnyNight()
-        //{
-        //    // Arrange
-        //    lightSensorMock.Setup(x => x.GetLuxValue()).Returns((int)SetPoint);
-        //    weatherSensorMock.Setup(x => x.GetWeatherCondition()).Returns("Sunny");
-        //    currentTimeMock.Setup(x => x.GetCurrentHour()).Returns(1);
-        //    currentTimeMock.Setup(x => x.IsWinterSeason()).Returns(false);
-
-        //    // Act
-        //    streetLightController.ManageLights();
-
-        //    // Assert
-
-        //    streetLightMock.Verify(x => x.Disable(), Times.Never);
-        //    streetLightMock.Verify(x => x.Enable(6), Times.Once);
-        //}
         [TestMethod]
         public void TestLightDisableWhenLuxAboveSetPointInWinter()
         {
